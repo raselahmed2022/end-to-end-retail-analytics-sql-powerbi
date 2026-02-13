@@ -1,164 +1,149 @@
 
-🛒 End-to-End Retail Analytics Pipeline (SQL + Power BI)
-📌 Project Summary
+Retail Performance Intelligence System
 
-Designed and implemented an end-to-end retail analytics system to transform raw grocery sales data into structured, decision-ready insights using SQL and Power BI.
+SQL-Driven Analytical Reporting & BI Dashboard
 
-The project demonstrates:
+1. Executive Summary
 
-Data cleaning & standardization
+This project simulates a retail analytics environment where structured SQL transformations are used to convert raw transactional data into actionable business intelligence.
 
-Analytical data modeling
+The objective was to design a repeatable analytical pipeline capable of:
 
-KPI computation with SQL
+Standardizing inconsistent product attributes
 
-Business-driven dashboard design
+Computing executive KPIs
 
-Structured reporting pipeline
+Performing performance segmentation
 
-This project reflects a practical data workflow from raw data ingestion to executive-level reporting.
+Supporting outlet-level profitability decisions
 
-🎯 Business Objective
+The final output is an interactive Power BI dashboard powered by structured SQL queries.
 
-Retail management needed visibility into:
+2. Business Problem
 
-Overall sales performance
+Retail leadership required visibility into:
 
-Outlet-level profitability
+Revenue distribution by outlet type
 
-Product category distribution
+Performance by outlet size and location tier
 
-Customer rating patterns
+Product segmentation (Fat Content)
 
-Inventory segmentation (Fat Content, Outlet Type, Size)
+Yearly sales trend by establishment year
 
-The goal was to create a scalable analytical framework to support data-driven decisions.
+Relative contribution of each segment to total revenue
 
-🏗 Solution Architecture
-Raw CSV Data
-      ↓
-SQL Data Cleaning & Standardization
-      ↓
-Data Modeling (Aggregations & Views)
-      ↓
-KPI Computation
-      ↓
-Power BI Dashboard (Interactive Reporting)
+The existing raw dataset contained inconsistent categorical labels and unstructured aggregation.
 
-🧹 Data Engineering & SQL Implementation
-1️⃣ Data Cleaning
+3. Data Engineering Approach
+3.1 Data Cleaning & Standardization
 
-Standardized categorical variables (e.g., "LF", "low fat" → "Low Fat")
+Handled inconsistent categorical values:
 
-Removed inconsistencies in outlet types
+“LF”, “low fat” → standardized to “Low Fat”
 
-Validated missing values
+“reg” → standardized to “Regular”
 
-Ensured aggregation integrity
+Ensured consistent grouping for accurate aggregation.
 
-Example transformation:
+3.2 Analytical Modeling
 
-UPDATE blinkit_data
-SET Item_Fat_Content =
-    CASE
-        WHEN Item_Fat_Content IN ('LF', 'low fat') THEN 'Low Fat'
-        WHEN Item_Fat_Content = 'reg' THEN 'Regular'
-        ELSE Item_Fat_Content
-    END;
-
-2️⃣ KPI Computation
-
-Key KPIs calculated using SQL:
+Built grouped aggregations and window functions to compute:
 
 Total Sales
 
 Average Sales
 
-Total Number of Items
+Number of Items
 
-Average Customer Rating
+Average Rating
 
-Example:
+Percentage Contribution by Segment
+
+Example (Percentage Contribution using Window Function):
 
 SELECT 
+    Outlet_Size,
     SUM(Total_Sales) AS Total_Sales,
-    AVG(Total_Sales) AS Avg_Sales,
-    COUNT(*) AS Total_Items,
-    AVG(Rating) AS Avg_Rating
-FROM blinkit_data;
-
-3️⃣ Analytical Segmentation
-
-Advanced SQL analysis performed for:
-
-Sales by Outlet Tier (Tier 1, 2, 3)
-
-Sales Contribution by Outlet Size
-
-Fat Content Sales Distribution
-
-Outlet Type Comparison
-
-Establishment Year Trend
-
-Example aggregation:
-
-SELECT Outlet_Size,
-       SUM(Total_Sales) AS Sales
+    CAST(
+        (SUM(Total_Sales) * 100.0 /
+        SUM(SUM(Total_Sales)) OVER())
+    AS DECIMAL(10,2)) AS Sales_Percentage
 FROM blinkit_data
-GROUP BY Outlet_Size
-ORDER BY Sales DESC;
+GROUP BY Outlet_Size;
 
-📊 Dashboard Features (Power BI)
 
-The interactive dashboard includes:
+This approach allows relative performance comparison rather than only absolute totals.
 
-KPI cards (Total Sales, Avg Sales, Items, Rating)
+3.3 Trend Analysis with Time Dimension
 
-Outlet establishment trend analysis
+Computed yearly performance using aggregation:
 
-Category-level sales distribution
+SELECT 
+    Outlet_Establishment_Year,
+    SUM(Total_Sales) AS Yearly_Sales
+FROM blinkit_data
+GROUP BY Outlet_Establishment_Year
+ORDER BY Outlet_Establishment_Year;
 
-Fat content performance comparison
 
-Outlet size & location contribution analysis
+Identified growth phase and stabilization periods across establishment years.
 
-Dynamic filtering by outlet type and size
+4. Dashboard Capabilities
 
-The dashboard allows management to quickly identify performance drivers and underperforming segments.
+The Power BI dashboard provides:
+
+Executive KPI panel
+
+Establishment Year trend analysis
+
+Sales by Outlet Size (percentage contribution)
+
+Outlet Location tier comparison
+
+Product category ranking
+
+Fat Content distribution
+
+Designed for decision-support and management-level review.
+
+5. Key Insights
+
+Large outlets contribute the highest total revenue share.
+
+Sales peaked significantly in 2018, then stabilized.
+
+Product segmentation reveals dominant categories driving revenue.
+
+Certain outlet tiers outperform others consistently.
+
+6. Technical Stack
+
+SQL (Aggregation, Window Functions, Data Cleaning)
+
+Power BI (Interactive Visualization & KPI Modeling)
+
+Excel (Initial Data Source)
+
+GitHub (Version Control & Documentation)
+
+7. What This Project Demonstrates
+
+Structured SQL transformation capability
+
+Understanding of business KPI logic
+
+Ability to compute percentage contributions using window functions
+
+Analytical storytelling from data
+
+End-to-end BI workflow understanding
+
 
 Dashboard:
 <img width="1346" height="775" alt="Screenshot 2026-02-13 080245" src="https://github.com/user-attachments/assets/b65f47d8-82f5-4289-b133-b1d7ecef0f02" />
 
 
-
-
-📈 Key Insights
-
-Large outlets contribute the highest overall revenue share.
-
-Low Fat product category generates strong sales volume.
-
-Certain outlet tiers consistently outperform across multiple KPIs.
-
-Sales trends correlate with establishment year maturity.
-
-🛠 Tech Stack
-
-SQL (Data Cleaning, Aggregation, Modeling)
-
-Power BI (Visualization & Interactive Reporting)
-
-CSV Data Processing
-
-Data Modeling Concepts
-
-Repository Structure
-/data        → Raw dataset (if publicly shareable)
-/sql         → Cleaning & analytical SQL queries
-/dashboard   → Dashboard preview images
-/docs        → Architecture & assumptions
-README.md    → Project documentation
 
 
 
