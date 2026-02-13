@@ -128,7 +128,8 @@ Dynamic filtering by outlet type and size
 The dashboard allows management to quickly identify performance drivers and underperforming segments.
 
 Dashboard:
-file:///C:/Users/rasel/AppData/Local/Temp/Power%20BI%20Desktop/print-job-0e507315-1e8d-42ac-bd6e-370b094ad937/Untitled.pdf
+<img width="1346" height="775" alt="Screenshot 2026-02-13 080245" src="https://github.com/user-attachments/assets/b65f47d8-82f5-4289-b133-b1d7ecef0f02" />
+
 
 
 
@@ -166,7 +167,7 @@ README.md    → Project documentation
 
 Rasal Miah
 Digital Technology & Management – Big Data Engineering
-Aspiring Data Engineer | SQL | Data Modeling | Analytics
+Aspiring Data Engineer | SQL | Data Modeling | Analytics|BI tools|Python
 
 LinkedIn: www.linkedin.com/in/rasalmiah 
 
