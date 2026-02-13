@@ -127,6 +127,12 @@ Dynamic filtering by outlet type and size
 
 The dashboard allows management to quickly identify performance drivers and underperforming segments.
 
+Dashboard:
+
+<img width="1292" height="759" alt="Screenshot 2026-02-12 235642" src="https://github.com/user-attachments/assets/8d5b1ba7-4fbb-47a7-8054-93efa70549e5" />
+
+
+
 📈 Key Insights
 
 Large outlets contribute the highest overall revenue share.
@@ -173,6 +179,5 @@ Rasal Miah
 Digital Technology & Management – Big Data Engineering
 Aspiring Data Engineer | SQL | Data Modeling | Analytics
 
-Git & GitHub (Version Control & Documentation)
 LinkedIn: www.linkedin.com/in/rasalmiah 
 
