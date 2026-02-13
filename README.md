@@ -141,7 +141,8 @@ End-to-end BI workflow understanding
 
 
 Dashboard:
-<img width="1346" height="775" alt="Screenshot 2026-02-13 080245" src="https://github.com/user-attachments/assets/b65f47d8-82f5-4289-b133-b1d7ecef0f02" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/03cdc3d0-f229-477a-b4d8-4c693be37923" />
+
 
 
 
