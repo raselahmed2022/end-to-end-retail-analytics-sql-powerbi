@@ -128,8 +128,7 @@ Dynamic filtering by outlet type and size
 The dashboard allows management to quickly identify performance drivers and underperforming segments.
 
 Dashboard:
-
-<img width="1292" height="759" alt="Screenshot 2026-02-12 235642" src="https://github.com/user-attachments/assets/8d5b1ba7-4fbb-47a7-8054-93efa70549e5" />
+file:///C:/Users/rasel/AppData/Local/Temp/Power%20BI%20Desktop/print-job-0e507315-1e8d-42ac-bd6e-370b094ad937/Untitled.pdf
 
 
 
@@ -160,17 +159,7 @@ Repository Structure
 /docs        → Architecture & assumptions
 README.md    → Project documentation
 
-💡 What This Project Demonstrates
 
-Strong SQL fundamentals
-
-Data transformation logic
-
-Business-oriented analytical thinking
-
-Structured pipeline approach
-
-Ability to translate data into executive insights
 
 
 👤 Author
