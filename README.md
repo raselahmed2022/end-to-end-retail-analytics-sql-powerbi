@@ -153,7 +153,7 @@ Dashboard:
 
 Rasal Miah
 Digital Technology & Management – Big Data Engineering
-Aspiring Data Engineer | SQL | Data Modeling | Analytics|BI tools|Python
+Ex-AI & Data Engineer | SQL | Data Modeling | Analytics|BI tools|Python
 
 LinkedIn: www.linkedin.com/in/rasalmiah 
 
